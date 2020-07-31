@@ -1,0 +1,227 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif !important;
+  font-size: 16px;
+}
+
+:root {
+  --text-color: #000000;
+}
+
+/* Invoice Creation */
+
+#invoiceCreation .container {
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+}
+
+.btn-actions:hover {
+  opacity: 0.7;
+}
+
+.btn-send {
+  border: 2px solid #07edd6 !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 400;
+}
+
+.btn-send:hover {
+  border: 2px solid #06c7b4 !important;
+  background-color: #06c7b4;
+  color: white !important;
+}
+
+.image-upload label {
+  cursor: pointer;
+}
+
+.image-upload > input {
+  display: none;
+}
+
+#invoiceName {
+  border: 1px solid #ced4da;
+  font-size: 2rem;
+  text-align: right;
+  padding: 0.2rem 0.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  #invoiceName {
+    font-size: 1rem;
+  }
+}
+
+#invoiceNumber {
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+  text-align: right;
+  padding: 0.2rem 0.5rem;
+}
+
+.invoiceCreation__inputGen {
+  border: 1px solid #ced4da;
+  font-size: 1.1rem;
+  text-align: left;
+  padding: 0.2rem 0.5rem;
+  color: black;
+  background-color: white;
+  width: 100%;
+}
+
+.invoiceCreation__info {
+  border: none;
+  font-size: 1.1rem;
+  text-align: left;
+  padding: 0.2rem 1.4rem;
+  color: #8c8c8c;
+  background-color: white;
+  width: 100%;
+}
+
+.invoiceCreation__date {
+  border: 1px solid #ced4da;
+  font-size: 1.1rem;
+  text-align: left;
+  padding: 0.2rem 0.5rem;
+  color: #757575;
+  background-color: white;
+  text-align: right;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: #757575;
+}
+.table__hr {
+  background-color: #2c988e;
+  height: 1px;
+}
+
+.table__hr2 {
+  background-color: #2c988e;
+  height: 1px;
+  width: 50%;
+  margin-left: auto;
+
+}
+
+.table__info {
+  position: relative;
+}
+
+.close__container {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  cursor: pointer;
+}
+
+.close__container:hover.close__container {
+  opacity: 0.7;
+}
+
+#taxes::before {
+  content: "$ ";
+}
+
+#subTotal::before {
+  content: "$ ";
+}
+
+#total {
+  color: black;
+  font-weight: 700;
+}
+
+#total::before {
+  content: "$ ";
+}
+
+.table__button {
+  cursor: pointer;
+  color: #757575 !important ;
+}
+
+.table__button:hover {
+  opacity: 0.7;
+}
+
+.field__invalid {
+  border: 1px solid red;
+}
+
+.invalid-container {
+  position: relative;
+}
+
+.invalid-container::before {
+  content: "Please insert a description";
+  position: absolute;
+  bottom: -17px;
+  left: 23px;
+  font-size: 0.8rem;
+  color: red;
+}
+
+.description,
+.rate {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.rate::before {
+  content: "$ ";
+}
+
+.price::before {
+  content: "$ ";
+}
+
+/* Invoice Creation */
+
+@media screen and (max-width: 991px) {
+  .table__info {
+    border: 1px solid #2c988e;
+    margin-bottom: 1rem;
+  }
+
+  .close__container {
+    right: 9px;
+  }
+
+  .description::before {
+    content: "Description:  ";
+    color: black;
+    font-weight: 700;
+  }
+
+  .rate::before {
+    content: "Rate:  $ ";
+    color: black;
+    font-weight: 700;
+  }
+
+  .quantity::before {
+    content: "Quantity: ";
+    color: black;
+    font-weight: 700;
+  }
+
+  .price::before {
+    content: "Price: $ ";
+    color: black;
+    font-weight: 700;
+  }
+
+  .table__hr2{
+    width:100%;
+  }
+}
