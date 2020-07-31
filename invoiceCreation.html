@@ -39,7 +39,7 @@
                         <button class="btn btn-actions"> <i class="far fa-file-pdf mr-1"></i> PDF </button>
                     </div>
 
-                    <button type="submit" class=" btn btn-send"> Preview/Send </button>
+                    <button type="submit" class=" btn btn-send btn-lg"> Generate </button>
                 </div>
                 <!--Top Links-->
 
@@ -59,7 +59,7 @@
                     <div class=" col-12  col-lg-5 invoiceName__container  text-right">
                         <input type="text" class="ml-auto d-block" id="invoiceName" aria-describedby="invoiceName"
                             placeholder="INVOICE" disabled>
-                        <input type="text" class="mt-2   " id="invoiceNumber" aria-describedby="invoiceNumber"
+                        <input type="text" class="mt-2   " id="invoiceNumber" aria-describedby="invoiceNumber" required
                             placeholder="Invoice#" name="invoiceId">
                     </div>
                 </div>
@@ -69,13 +69,13 @@
                     <div class="col-12 col-lg-4">
                         <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
                             aria-describedby="Your company" value="Your Company">
-                        <input type="text" id="companyName" class="mt-2 invoiceCreation__inputGen "
+                        <input type="text" id="companyName" class="mt-2 invoiceCreation__inputGen " required
                             aria-describedby="company Name" placeholder="Company Name" name="companyName">
-                        <input type="text" id="companyAddress" class="mt-2 invoiceCreation__inputGen "
+                        <input type="text" id="companyAddress" class="mt-2 invoiceCreation__inputGen " required
                             aria-describedby="company address" placeholder="Company Address" name="companyAddress">
-                        <input type="text" id="companyCity" class="mt-2 invoiceCreation__inputGen "
+                        <input type="text" id="companyCity" class="mt-2 invoiceCreation__inputGen " required
                             aria-describedby="company city" placeholder="City, State" name="companyCity">
-                        <input type="text" id="companyCountry" class="mt-2 invoiceCreation__inputGen "
+                        <input type="text" id="companyCountry" class="mt-2 invoiceCreation__inputGen " required
                             aria-describedby="company country" placeholder="Country" name="companyCountry">
                     </div>
                     <div class=" col-12 col-lg-5 ml-auto">
@@ -83,14 +83,14 @@
                         <div class="d-flex justify-content-between flex-wrap flex-lg-nowrap mb-2">
                             <input type="text" class="mt-2 invoiceCreation__inputGen  mr-2 " disabled
                                 aria-describedby="Invoice Date" value="Invoice Date">
-                            <input type="date" id="invoiceDate" class="mt-2 invoiceCreation__date "
+                            <input type="date" id="invoiceDate" class="mt-2 invoiceCreation__date " required
                                 aria-describedby="insert invoice Date" name="invoiceDate">
                         </div>
                         <div class="d-flex justify-content-between mb-2 flex-wrap flex-lg-nowrap mb-2">
 
                             <input type="text" class=" invoiceCreation__inputGen  mr-2 " disabled
                                 aria-describedby="Due Date" value="Due Date">
-                            <input type="date" id="dueDate" class=" mt-2 mt-lg-0 invoiceCreation__date "
+                            <input type="date" id="dueDate" class=" mt-2 mt-lg-0 invoiceCreation__date " required
                                 aria-describedby="insert due Date" name="dueDate">
                         </div>
                     </div>
@@ -102,13 +102,13 @@
                     <div class="col-lg-4 col-12 ">
                         <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
                             aria-describedby="Bill to " value="Bill To:">
-                        <input type="text" id="clientName" class="mt-2 invoiceCreation__inputGen "
+                        <input type="text" id="clientName" class="mt-2 invoiceCreation__inputGen " required
                             aria-describedby="client Name" placeholder="Client Name" name="clientName">
-                        <input type="text" id="clientAddress" class="mt-2 invoiceCreation__inputGen "
+                        <input type="text" id="clientAddress" class="mt-2 invoiceCreation__inputGen " required
                             aria-describedby="client address" placeholder="Client Address" name="clientAddress">
-                        <input type="text" id="clientCity" class="mt-2 invoiceCreation__inputGen "
+                        <input type="text" id="clientCity" class="mt-2 invoiceCreation__inputGen " required
                             aria-describedby="clent city" placeholder="City, State" name="clientCity">
-                        <input type="text" id="clientCountry" class="mt-2 invoiceCreation__inputGen "
+                        <input type="text" id="clientCountry" class="mt-2 invoiceCreation__inputGen " required
                             aria-describedby="client country" placeholder="Country" name="clientCountry">
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                         <div class="col-lg-2 col-12">
                             <label for="priceInput" class="mt-3 mt-lg-0 mb-0 d-block d-lg-none"> Price: </label>
                             <input type="number" id="priceInput" class="mt-2 invoiceCreation__inputGen "
-                                aria-describedby="Price amount" value="0">
+                                aria-describedby="Price amount" value="0" disabled>
                         </div>
                     </div>
                     <div class="mt-4">
@@ -224,7 +224,7 @@
                     <div class="col-12 col-lg-5 ">
                         <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
                             aria-describedby="Notes" value="Note">
-                        <input type="text" id="notes" class="mt-2 invoiceCreation__inputGen "
+                        <input type="text" id="notes" class="mt-2 invoiceCreation__inputGen " required
                             aria-describedby="Notes input" placeholder="Thanks for doing business with us" name="feedback">
                     </div>
                 </div>
@@ -233,7 +233,7 @@
                         <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
                             aria-describedby="Notes" value="Terms and conditions">
                         <input type="text" id="terms" class="mt-2 invoiceCreation__inputGen "
-                            aria-describedby="terms and conditions input"
+                            aria-describedby="terms and conditions input" required
                             placeholder="Please make payment by the due date" name="paymentMethod">
                     </div>
                 </div>
@@ -257,7 +257,7 @@
         <script src="./dist/jsPDF/jspdf.debug.js"></script>
 
         <!-- EDIT: For now, add this line between the libraries -->
-        <!-- The reason being that jspdf includes a version of requirejs which -->
+        <!-- The reason being that jspdf includes a version of requiredejs which -->
         <!-- jspdf-autotable currently is not expecting. You can also use version < 2.0.21 -->
         <script>if (window.define) delete window.define.amd;</script>
 
@@ -266,6 +266,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>
 
         <script src="./template_generation.js"></script>
+        
 
     <script src="./assets/js/invoiceCreation.js"></script>
 </body>

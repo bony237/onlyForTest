@@ -63,7 +63,7 @@ function ready() {
                      </div>
                      <div class=" table__item col-lg-2 col-12 price pb-3 pb-lg-0 invoiceCreation__info"> ${price} </div>
                      <div class="close__container">
-                         <img class="close__item" src="../assets/images/closeButton.png" alt="">
+                         <img class="close__item" src="./assets/images/closeButton.png" alt="">
                      </div>
                  </div>
                     `
