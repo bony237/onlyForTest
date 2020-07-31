@@ -6,6 +6,10 @@ var imgBottom_dataURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA9cAAABMC
 var imgHeart_dataURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAcCAYAAACUJBTQAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHfSURBVHgBvZY/T9tQFMXPuaF1K1UVabujbjSqWlWicxe6pkvXMnVmgW/AzMQKC6x8A1jCF0CJRAAxQFb+iAgYsBW/y3tPEEwwsQ2Y3+LEPr7n+ere+x6R4M1pe0x7Og2yDmIMio69NiiYu6zWOhjg9cXON4Zm2up+OT2VTaU2B/W8+REc7dRR0UWojg4GI9mFiWcvP31d7i/ouD2lxCJSGNSz/wUGe8ggFkz2qrUNvyAxq3n14v5ojHXkYES56lIEmvk8+kqMJXflq9Pdf2LiJeTkOu/f8+p7In9F4t4fFKCIgWPEmLpNFwu9VBhbeeJLtUxsfMELIL7hSsT1jE0XD1AiqtoUQjdQJkZbxP7maPA+OERJKGVC8PlH12augXJoRB/GW766KPofJWCnsY/rTdxYFuUMnhHF7bhn8kFw0najewpPZzn8WOtn504zugeqaOIpqHbenoWzyVv3Oj46D387IR5pwAonu76YbmGa1m9isa7bRs0/164N0rZpPvROIaMhBkNNchvZ2UTqz4cMMk0c/kQSWaOUA4ZDA5mI3o23hsXIHPUugF1peg8JZ7IMcpk4bCpW7JoXkvdcs4XVLwt4boKT7TXbsFFwvJV5fEpSaGe8mXGuklAm/txVkCuXgtFXet4eKgAAAABJRU5ErkJggg==';
 
 
+var imgLogo_dataURI = 'data:image/png;base64,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';
+
+
+
 document.querySelector('form').addEventListener('submit', function(event) {
     /**
      * invoiceId
@@ -41,21 +45,7 @@ theForm.addEventListener('submit', function(event)  {
 
     var listItem = [];
     
-    var beAddDiv = document.querySelector('.table__row');
-
-    (function() {
-        if (beAddDiv.querySelector("#brandIdentity").value !== "") {
-            listItem.push(
-                [
-                    beAddDiv.querySelector("#brandIdentity").value,
-                    beAddDiv.querySelector("#rateInput").value,
-                    beAddDiv.querySelector("#quantityInput").value,
-                    beAddDiv.querySelector("#priceInput").value,
-                ]
-            );
-        }
-    }) ();
-
+    
     var alreadyAddedDiv = document.querySelectorAll("#rowsContainer > div");
     
     if(alreadyAddedDiv.length) {
@@ -70,33 +60,32 @@ theForm.addEventListener('submit', function(event)  {
             listItem.push(oneItemValues);
         });
     }
+    else {
+        /*alert("Please Add Product description details");
+        return;*/
+    }
 
-    console.log(listItem);
     
 
     
-
-    /*document.querySelectorAll('.rowsContainer + div').forEach((item) => {
-        let valueDivAll = item.querySelectorAll('div');
-        listItem.appendChild([valueDivAll[0], valueDivAll[1], valueDivAll[2], valueDivAll[3]]);
-    });*/
-
     /**
     * Begining of the program
     */
     var doc = new jsPDF()
     var data = {
         id: values.get("invoiceId"),
-        date: values.get("invoiceDate"),
+        invoiceDate: values.get("invoiceDate"),
+        dueDate: values.get("dueDate"),
         name: values.get("clientName"),
+        subTotal: document.querySelector('#subTotal').innerText,
+        total: document.querySelector('#total').innerText,
         addressClient: `${values.get("clientAddress")}, ${values.get("clientCity")} \n${values.get("clientCountry")}`,
         address: `${values.get("companyAddress")}, ${values.get("companyCity")} \n${values.get("companyCountry")}`,
         phone: '701-273-7854\n701-325-896',
         web: 'info@design.com\nwww.designbest.com',
         toDoList: listItem,
-        totalTable: [
-            ['Visa | Credit, Master Card, Net Banking', 'Tax Rate', '0%'],
-        ]
+        paymentMethod: values.get("paymentMethod"),
+        feedback: values.get("feedback"),
     }
 
     
@@ -109,6 +98,9 @@ theForm.addEventListener('submit', function(event)  {
 
     // image bottom
     doc.addImage(imgBottom_dataURI, 'png', 26, 284, 165, 13)
+
+    // image logo
+    doc.addImage(imgLogo_dataURI, 'png', 15, 260, 43, 17)
 
     /**
      * title & ID invoice
@@ -127,15 +119,18 @@ theForm.addEventListener('submit', function(event)  {
      */
     // bill to and date
     doc.setFontSize('14')
-    doc.text('Bill to', 20, 62)
-    doc.text('Date', 144, 62)
+    doc.text('Bill to Ms/M.', 20, 62)
+    doc.text('Invoice Date', 134, 62)
+    doc.text('Due Date', 141, 70)
+
     doc.setFontStyle('bold') 
-    doc.text(`${data.date}`, 160, 62)                       // Variable
+    doc.text(`${data.invoiceDate}`, 170, 62)                       // Variable
+    doc.text(`${data.dueDate}`, 170, 70)                       // Variable
 
     // Name client
-    doc.text(`Mme/Mr ${data.name}`, 20, 74)                 // Variable (max with issue, use character lenght with for)
+    doc.text(`${data.name}`, 20, 70)                 // Variable (max with issue, use character lenght with for)
     doc.setFontStyle('regular')
-    doc.text(`${data.addressClient}`, 20, 83)                     // Variable (max with issue, use character lenght with for)
+    doc.text(`${data.addressClient}`, 20, 78)                     // Variable (max with issue, use character lenght with for)
 
 
     /**
@@ -179,14 +174,15 @@ theForm.addEventListener('submit', function(event)  {
 
     //console.log(data.toDoList.length);
 
-    var columns2 = ['Payements Methods', 'SubTotal', '$700'];
-    var columns3 = ['      Thank You for your business', 'Total', '$700'];
+    var headRow = ['Payements Methods', 'SubTotal', `${data.subTotal}`];
+    var footRow = [`      ${data.feedback}`, 'Total', `${data.total}`];
+    var totalRows = [data.paymentMethod, 'Tax Rate', '10%'];
 
     doc.autoTable(
         {
-            head: [columns2],
-            foot: [columns3],
-            body: data.totalTable,
+            head: [headRow],
+            foot: [footRow],
+            body: [totalRows],
 
             startY: heightTable1 + 90 ,
             //padding: { left: 20, right: 20},
