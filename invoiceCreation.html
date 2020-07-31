@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome icons -->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo.svg">
+    <!-- Title -->
+    <title>Invoice Generator | Invoice Creation </title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Font awesome -->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Css sheet -->
+    <link rel="stylesheet" href="./assets/css/invoiceCreation.css">
+</head>
+
+<body>
+
+
+    <!-- Enter your text here -->
+    <!-- Invoice Creation -->
+
+    <section id="invoiceCreation">
+        <div class="container mt-5 pt-5 mb-5">
+            <form>
+                <!--Top Links-->
+                <div class="invoiceCreation__buttons d-flex justify-content-between">
+                    <div>
+                        <a class="btn btn-actions"> <i class="fas fa-print mr-1"></i> Print</a>
+                        <button class="btn btn-actions"> <i class="far fa-file-pdf mr-1"></i> PDF </button>
+                    </div>
+
+                    <button type="submit" class=" btn btn-send"> Preview/Send </button>
+                </div>
+                <!--Top Links-->
+
+                <!-- Company Data -->
+
+                <div class=" row d-flex justify-content-between mt-5">
+                    <div class="col-12 col-lg-7 text-center text-md-left">
+                        <img src="./assets/images/200x100.png" alt="">
+                        <div class="image-upload ml-2">
+                            <label for="file-input">
+                                <img src="./assets/images/addIcon.png" />
+                            </label>
+                            <input id="file-input" type="file" />
+                        </div>
+                    </div>
+
+                    <div class=" col-12  col-lg-5 invoiceName__container  text-right">
+                        <input type="text" class="ml-auto d-block" id="invoiceName" aria-describedby="invoiceName"
+                            placeholder="INVOICE" disabled>
+                        <input type="text" class="mt-2   " id="invoiceNumber" aria-describedby="invoiceNumber"
+                            placeholder="Invoice#" name="invoiceId">
+                    </div>
+                </div>
+
+
+                <div class="row mt-5">
+                    <div class="col-12 col-lg-4">
+                        <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
+                            aria-describedby="Your company" value="Your Company">
+                        <input type="text" id="companyName" class="mt-2 invoiceCreation__inputGen "
+                            aria-describedby="company Name" placeholder="Company Name" name="companyName">
+                        <input type="text" id="companyAddress" class="mt-2 invoiceCreation__inputGen "
+                            aria-describedby="company address" placeholder="Company Address" name="companyAddress">
+                        <input type="text" id="companyCity" class="mt-2 invoiceCreation__inputGen "
+                            aria-describedby="company city" placeholder="City, State" name="companyCity">
+                        <input type="text" id="companyCountry" class="mt-2 invoiceCreation__inputGen "
+                            aria-describedby="company country" placeholder="Country" name="companyCountry">
+                    </div>
+                    <div class=" col-12 col-lg-5 ml-auto">
+
+                        <div class="d-flex justify-content-between flex-wrap flex-lg-nowrap mb-2">
+                            <input type="text" class="mt-2 invoiceCreation__inputGen  mr-2 " disabled
+                                aria-describedby="Invoice Date" value="Invoice Date">
+                            <input type="date" id="invoiceDate" class="mt-2 invoiceCreation__date "
+                                aria-describedby="insert invoice Date" name="invoiceDate">
+                        </div>
+                        <div class="d-flex justify-content-between mb-2 flex-wrap flex-lg-nowrap mb-2">
+
+                            <input type="text" class=" invoiceCreation__inputGen  mr-2 " disabled
+                                aria-describedby="Due Date" value="Due Date">
+                            <input type="date" id="dueDate" class=" mt-2 mt-lg-0 invoiceCreation__date "
+                                aria-describedby="insert due Date" name="dueDate">
+                        </div>
+                    </div>
+                </div>
+                <!-- Company Data -->
+
+                <!-- Bill Data -->
+                <div class="row mt-5">
+                    <div class="col-lg-4 col-12 ">
+                        <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
+                            aria-describedby="Bill to " value="Bill To:">
+                        <input type="text" id="clientName" class="mt-2 invoiceCreation__inputGen "
+                            aria-describedby="client Name" placeholder="Client Name" name="clientName">
+                        <input type="text" id="clientAddress" class="mt-2 invoiceCreation__inputGen "
+                            aria-describedby="client address" placeholder="Client Address" name="clientAddress">
+                        <input type="text" id="clientCity" class="mt-2 invoiceCreation__inputGen "
+                            aria-describedby="clent city" placeholder="City, State" name="clientCity">
+                        <input type="text" id="clientCountry" class="mt-2 invoiceCreation__inputGen "
+                            aria-describedby="client country" placeholder="Country" name="clientCountry">
+                    </div>
+                </div>
+                <!-- Bill Data -->
+
+
+                <!-- Table -->
+                <div class="table mt-5  ">
+                    <!-- Table Header -->
+                    <div class="table__header d-none  row  mx-auto px-5  d-lg-flex justify-content-center">
+                        <div class="col-6">
+                            <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
+                                aria-describedby="Bill to " value="Product Description">
+                        </div>
+                        <div class="col-2">
+                            <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
+                                aria-describedby="Rate" value="Rate">
+                        </div>
+                        <div class="col-2">
+                            <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
+                                aria-describedby="Qty" value="Qty">
+                        </div>
+                        <div class="col-2">
+                            <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
+                                aria-describedby="Price" value="Price">
+                        </div>
+                    </div>
+                    <!-- Table Header -->
+
+                    <hr class="table__hr">
+
+                    <!-- Table Rows with Products Description/Rate/Qty/Price  -->
+                    <div id="rowsContainer">
+
+                    </div>
+                    <!-- Table Rows with Products Description/Rate/Qty/Price  -->
+
+                    <!-- Input fields for the Table -->
+                    <div class="table__row row  mx-lg-auto px-1 px-lg-5   d-flex justify-content-center">
+                        <div class="col-lg-6 col-12 needs__validation ">
+                            <label for="brandIdentity" class="mb-0 d-block d-lg-none"> Description: </label>
+                            <input type="text" id="brandIdentity" class="mt-2 invoiceCreation__inputGen   "
+                                aria-describedby="Brand identity" placeholder="Brand Identity" maxlength="45">
+                        </div>
+                        <div class="col-lg-2 col-12">
+                            <label for="rateInput" class="mt-3 mt-lg-0 mb-0 d-block d-lg-none"> Rate: </label>
+                            <input type="number" min="0" id="rateInput" class="mt-2 invoiceCreation__inputGen  "
+                                aria-describedby="Rate" placeholder="$50" value="0">
+                        </div>
+                        <div class="col-lg-2 col-12">
+                            <label for="quantityInput" class="mt-3 mt-lg-0 mb-0 d-block d-lg-none"> Quantity: </label>
+                            <input type="number" min="1" id="quantityInput" class="mt-2 invoiceCreation__inputGen "
+                                aria-describedby="Quantity number" value="1">
+                        </div>
+                        <div class="col-lg-2 col-12">
+                            <label for="priceInput" class="mt-3 mt-lg-0 mb-0 d-block d-lg-none"> Price: </label>
+                            <input type="number" id="priceInput" class="mt-2 invoiceCreation__inputGen "
+                                aria-describedby="Price amount" value="0">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a class="table__button "><img src="./assets/images/addIcon.png" alt=""> Add more item</a>
+                    </div>
+                </div>
+                <!-- Input fields for the Table -->
+
+                <hr class="table__hr">
+
+                <!--Totals-->
+                <div class="table__totals mb-2">
+                    <div class="row  mx-lg-auto   d-flex justify-content-end">
+                        <div class="col-12 col-sm-6 col-lg-3 ">
+                            <input type="text" class="mt-2 invoiceCreation__inputGen " aria-describedby="Sub Total"
+                                placeholder="Sub Total" disabled>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div id="subTotal" class="invoiceCreation__info mt-2  text-center  text-sm-left ">
+                                0
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row  mx-lg-auto    d-flex justify-content-end">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <input type="text" class="mt-2 invoiceCreation__inputGen " aria-describedby="Sub Total"
+                                placeholder="Sales Tax(10%)" disabled>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div id="taxes" class="invoiceCreation__info mt-2  text-center  text-sm-left">0 </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="table__hr2 ">
+
+                <div class="row  mx-lg-auto  d-flex justify-content-end">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
+                            aria-describedby="total" value="Total">
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div id="total" class="invoiceCreation__info mt-2 text-center  text-sm-left">
+                            0
+                        </div>
+
+                    </div>
+                </div>
+                <!--Totals-->
+
+                <!--Notes-->
+                <div class="row mt-5 ">
+                    <div class="col-12 col-lg-5 ">
+                        <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
+                            aria-describedby="Notes" value="Note">
+                        <input type="text" id="notes" class="mt-2 invoiceCreation__inputGen "
+                            aria-describedby="Notes input" placeholder="Thanks for doing business with us" name="feedback">
+                    </div>
+                </div>
+                <div class="row mt-2 mb-5">
+                    <div class="col-12 col-lg-5 ">
+                        <input type="text" class="mt-2 invoiceCreation__inputGen font-weight-bold" disabled
+                            aria-describedby="Notes" value="Terms and conditions">
+                        <input type="text" id="terms" class="mt-2 invoiceCreation__inputGen "
+                            aria-describedby="terms and conditions input"
+                            placeholder="Please make payment by the due date" name="paymentMethod">
+                    </div>
+                </div>
+                <!--Notes-->
+            </form>
+        </div>
+    </section>
+
+    <!-- Invoice Create -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+        <script src="./dist/jsPDF/jspdf.debug.js"></script>
+
+        <!-- EDIT: For now, add this line between the libraries -->
+        <!-- The reason being that jspdf includes a version of requirejs which -->
+        <!-- jspdf-autotable currently is not expecting. You can also use version < 2.0.21 -->
+        <script>if (window.define) delete window.define.amd;</script>
+
+        <script src="./dist/autotable/jspdf-autotable.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>
+
+        <script src="./template_generation.js"></script>
+
+    <script src="./assets/js/invoiceCreation.js"></script>
+</body>
+
+</html>

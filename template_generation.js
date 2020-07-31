@@ -6,191 +6,256 @@ var imgBottom_dataURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA9cAAABMC
 var imgHeart_dataURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAcCAYAAACUJBTQAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHfSURBVHgBvZY/T9tQFMXPuaF1K1UVabujbjSqWlWicxe6pkvXMnVmgW/AzMQKC6x8A1jCF0CJRAAxQFb+iAgYsBW/y3tPEEwwsQ2Y3+LEPr7n+ere+x6R4M1pe0x7Og2yDmIMio69NiiYu6zWOhjg9cXON4Zm2up+OT2VTaU2B/W8+REc7dRR0UWojg4GI9mFiWcvP31d7i/ouD2lxCJSGNSz/wUGe8ggFkz2qrUNvyAxq3n14v5ojHXkYES56lIEmvk8+kqMJXflq9Pdf2LiJeTkOu/f8+p7In9F4t4fFKCIgWPEmLpNFwu9VBhbeeJLtUxsfMELIL7hSsT1jE0XD1AiqtoUQjdQJkZbxP7maPA+OERJKGVC8PlH12augXJoRB/GW766KPofJWCnsY/rTdxYFuUMnhHF7bhn8kFw0najewpPZzn8WOtn504zugeqaOIpqHbenoWzyVv3Oj46D387IR5pwAonu76YbmGa1m9isa7bRs0/164N0rZpPvROIaMhBkNNchvZ2UTqz4cMMk0c/kQSWaOUA4ZDA5mI3o23hsXIHPUugF1peg8JZ7IMcpk4bCpW7JoXkvdcs4XVLwt4boKT7TXbsFFwvJV5fEpSaGe8mXGuklAm/txVkCuXgtFXet4eKgAAAABJRU5ErkJggg==';
 
 
-/**
- * Begining of the program
- */
-var doc = new jsPDF()
-var data = {
-    id: 45,
-    date: '30/07/2020',
-    name: 'Tony',
-    addressClient: 'cité palmiers, Kinato',
-    address: 'Jamaica, Rodeo \nStreet',
-    phone: '701-273-7854\n701-325-896',
-    web: 'info@design.com\nwww.designbest.com',
-    toDoList: [
-        ['Logo Design', '$50', '2', '$100'],
-        ['Brand Identity', '$100', '1', '$100'],
-        ['Graphic Design', '$80', '1', '$80'],
-        ['Graphic Design', '$80', '1', '$80'],
-        ['Graphic Design', '$80', '1', '$80'],
-        ['Graphic Design', '$80', '1', '$80'],
-        //['Graphic Design', '$80', '1', '$80'],
-        //['Graphic Design', '$80', '1', '$80'],
-        //['Graphic Design', '$80', '1', '$80'],
-        //['Graphic Design', '$80', '1', '$80'],
-    ],
-    totalTable: [
-        ['Visa | Credit, Master Card, Net Banking', 'Tax Rate', '0%'],
-    ]
-}
+document.querySelector('form').addEventListener('submit', function(event) {
+    /**
+     * invoiceId
+     * 
+     * companyName
+     * companyAddress
+     * companyCity
+     * companyCountry
+     * 
+     * //
+     * invoiceDate
+     * dueDate
+     * 
+     * //
+     * clientName
+     * clientAddress
+     * clientCity
+     * clientCountry
+     * 
+     * //
+     * feedback
+     * paymentMethod
+     * 
+     */
+});
 
-/**
- * Add Images
- */
-// image top
-doc.addImage(imgTop_dataURI, 'png', 19, 0, 189, 38)
+var theForm = document.querySelector('form');
 
-// image bottom
-doc.addImage(imgBottom_dataURI, 'png', 26, 284, 165, 13)
+theForm.addEventListener('submit', function(event)  {
+    const values = new FormData(theForm);
+    
+    event.preventDefault();
 
-/**
- * title & ID invoice
- */
-//title
-doc.setFontSize('20')
-doc.setFontStyle('bold')
-doc.text('INVOICE', 160, 35)
+    var listItem = [];
+    
+    var beAddDiv = document.querySelector('.table__row');
 
-// ID invoice                                           
-doc.setFontStyle('regular')
-doc.text(`#0${data.id}`, 174, 45)                        // Variable
+    (function() {
+        if (beAddDiv.querySelector("#brandIdentity").value !== "") {
+            listItem.push(
+                [
+                    beAddDiv.querySelector("#brandIdentity").value,
+                    beAddDiv.querySelector("#rateInput").value,
+                    beAddDiv.querySelector("#quantityInput").value,
+                    beAddDiv.querySelector("#priceInput").value,
+                ]
+            );
+        }
+    }) ();
 
-/**
- * entitled bill
- */
-// bill to and date
-doc.setFontSize('14')
-doc.text('Bill to', 20, 62)
-doc.text('Date', 144, 62)
-doc.setFontStyle('bold') 
-doc.text(`${data.date}`, 160, 62)                       // Variable
+    var alreadyAddedDiv = document.querySelectorAll("#rowsContainer > div");
+    
+    if(alreadyAddedDiv.length) {
+        alreadyAddedDiv.forEach((oneItem) => {
+            let oneItemValues = [];
+            oneItem.querySelectorAll('div').forEach(valueDiv => {
+                oneItemValues.push(valueDiv.innerText);
 
-// Name client
-doc.text(`Mme/Mr ${data.name}`, 20, 74)                 // Variable (max with issue, use character lenght with for)
-doc.setFontStyle('regular')
-doc.text(`${data.addressClient}`, 20, 83)                     // Variable (max with issue, use character lenght with for)
-
-
-/**
- * table by autotabe plugin (module)
- */
-// use of autotoble
-
-var columns = ['Product Description', 'Rate', 'Qty.', 'Price'];
-
-        
-doc.autoTable(
-    {
-        head: [columns],
-        body: data.toDoList,
-        startY: 95,
-        margin: { left: 20, right: 20 },
-        theme: 'plain',
-        columnStyles: {
-            0: {halign: 'left'},
-        },
-        styles: {
-            fontSize: 14,
-            minCellHeight: 15,
-            halign: 'center',
-            valign: 'middle',
-        },        
+                if(oneItemValues.length > 4)    oneItemValues.pop();
+            });
+            
+            listItem.push(oneItemValues);
+        });
     }
-);
 
-var heightLine = 90 + 17.5;
+    console.log(listItem);
+    
 
-// line
-doc.setDrawColor(237, 162, 119)
+    
 
-doc.setLineWidth(1)
-doc.line(15, heightLine, 195, heightLine);
+    /*document.querySelectorAll('.rowsContainer + div').forEach((item) => {
+        let valueDivAll = item.querySelectorAll('div');
+        listItem.appendChild([valueDivAll[0], valueDivAll[1], valueDivAll[2], valueDivAll[3]]);
+    });*/
 
-        
-
-var heightTable1 = (data.toDoList.length + 2)*15;
-
-//console.log(data.toDoList.length);
-
-var columns2 = ['Payements Methods', 'SubTotal', '$700'];
-var columns3 = ['      Thank You for your business', 'Total', '$700'];
-
-doc.autoTable(
-    {
-        head: [columns2],
-        foot: [columns3],
-        body: data.totalTable,
-
-        startY: heightTable1 + 90 ,
-        //padding: { left: 20, right: 20},
-        theme: 'plain',
-        styles: {
-            fontSize: 14,
-            minCellHeight: 10,
-        },
-        bodyStyles: {
-            minCellHeight: 15,
-            valign: 'top',
-        },
-        footStyles: {
-            fillColor: [242, 242, 242],
-            minCellHeight: 15,
-            valign: 'middle',
-        }        
+    /**
+    * Begining of the program
+    */
+    var doc = new jsPDF()
+    var data = {
+        id: values.get("invoiceId"),
+        date: values.get("invoiceDate"),
+        name: values.get("clientName"),
+        addressClient: `${values.get("clientAddress")}, ${values.get("clientCity")} \n${values.get("clientCountry")}`,
+        address: `${values.get("companyAddress")}, ${values.get("companyCity")} \n${values.get("companyCountry")}`,
+        phone: '701-273-7854\n701-325-896',
+        web: 'info@design.com\nwww.designbest.com',
+        toDoList: listItem,
+        totalTable: [
+            ['Visa | Credit, Master Card, Net Banking', 'Tax Rate', '0%'],
+        ]
     }
-)
+
+    
+
+    /**
+     * Add Images
+     */
+    // image top
+    doc.addImage(imgTop_dataURI, 'png', 19, 0, 189, 38)
+
+    // image bottom
+    doc.addImage(imgBottom_dataURI, 'png', 26, 284, 165, 13)
+
+    /**
+     * title & ID invoice
+     */
+    //title
+    doc.setFontSize('20')
+    doc.setFontStyle('bold')
+    doc.text('INVOICE', 160, 35)
+
+    // ID invoice                                           
+    doc.setFontStyle('regular')
+    doc.text(`#0${data.id}`, 174, 45)                        // Variable
+
+    /**
+     * entitled bill
+     */
+    // bill to and date
+    doc.setFontSize('14')
+    doc.text('Bill to', 20, 62)
+    doc.text('Date', 144, 62)
+    doc.setFontStyle('bold') 
+    doc.text(`${data.date}`, 160, 62)                       // Variable
+
+    // Name client
+    doc.text(`Mme/Mr ${data.name}`, 20, 74)                 // Variable (max with issue, use character lenght with for)
+    doc.setFontStyle('regular')
+    doc.text(`${data.addressClient}`, 20, 83)                     // Variable (max with issue, use character lenght with for)
 
 
-heightLine = heightTable1 + 90 + 40;
+    /**
+     * table by autotabe plugin (module)
+     */
+    // use of autotoble
 
-// line
-doc.setDrawColor(237, 162, 119)
+    var columns = ['Product Description', 'Rate', 'Qty.', 'Price'];
 
-doc.setLineWidth(1)
-doc.line(15, heightLine, 195, heightLine);
+            
+    doc.autoTable(
+        {
+            head: [columns],
+            body: data.toDoList,
+            startY: 95,
+            margin: { left: 20, right: 20 },
+            theme: 'plain',
+            columnStyles: {
+                0: {halign: 'left'},
+            },
+            styles: {
+                fontSize: 14,
+                minCellHeight: 15,
+                halign: 'center',
+                valign: 'middle',
+            },        
+        }
+    );
+
+    var heightLine = 90 + 17.5;
+
+    // line
+    doc.setDrawColor(237, 162, 119)
+
+    doc.setLineWidth(1)
+    doc.line(15, heightLine, 195, heightLine);
+
+            
+
+    var heightTable1 = (data.toDoList.length + 2)*15;
+
+    //console.log(data.toDoList.length);
+
+    var columns2 = ['Payements Methods', 'SubTotal', '$700'];
+    var columns3 = ['      Thank You for your business', 'Total', '$700'];
+
+    doc.autoTable(
+        {
+            head: [columns2],
+            foot: [columns3],
+            body: data.totalTable,
+
+            startY: heightTable1 + 90 ,
+            //padding: { left: 20, right: 20},
+            theme: 'plain',
+            styles: {
+                fontSize: 14,
+                minCellHeight: 10,
+            },
+            bodyStyles: {
+                minCellHeight: 15,
+                valign: 'top',
+            },
+            footStyles: {
+                fillColor: [242, 242, 242],
+                minCellHeight: 15,
+                valign: 'middle',
+            }        
+        }
+    )
 
 
-// image HEART
-doc.addImage(imgHeart_dataURI, 'png', 18, heightLine-10, 5, 5)
+    heightLine = heightTable1 + 90 + 40;
 
-/**
- * Address and contact
- */
-// Address
-doc.setFontStyle('bold')
-doc.setFontSize('15')
-doc.text('Address', 68, 265)
+    // line
+    doc.setDrawColor(237, 162, 119)
 
-doc.setFontStyle('regular')
-doc.text(`${data.address}`, 68, 275)
+    doc.setLineWidth(1)
+    doc.line(15, heightLine, 195, heightLine);
 
 
-// Phone
-doc.setFontStyle('bold')
-doc.setFontSize('15')
-doc.text('Phone', 110, 265)
+    // image HEART
+    doc.addImage(imgHeart_dataURI, 'png', 18, heightLine-10, 5, 5)
 
-doc.setFontStyle('regular')
-doc.text(`${data.phone}`, 110, 275)
+    /**
+     * Address and contact
+     */
+    // Address
+    doc.setFontStyle('bold')
+    doc.setFontSize('15')
+    doc.text('Address', 68, 265)
+
+    doc.setFontStyle('regular')
+    doc.text(`${data.address}`, 68, 275)
 
 
+    // Phone
+    doc.setFontStyle('bold')
+    doc.setFontSize('15')
+    doc.text('Phone', 110, 265)
 
-// Phone
-doc.setFontStyle('bold')
-doc.setFontSize('15')
-doc.text('Web', 150, 265)
-
-doc.setFontStyle('regular')
-doc.text(`${data.web}`, 150, 275)
-
+    doc.setFontStyle('regular')
+    doc.text(`${data.phone}`, 110, 275)
 
 
 
+    // Phone
+    doc.setFontStyle('bold')
+    doc.setFontSize('15')
+    doc.text('Web', 150, 265)
+
+    doc.setFontStyle('regular')
+    doc.text(`${data.web}`, 150, 275)
 
 
-// Downloading
-document.querySelector('button').addEventListener('click', function() {
+
+
+
+
+    // Preview and Downloading
 
     window.open(doc.output('bloburl'), '_blank');
 });
